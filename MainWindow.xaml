@@ -1,0 +1,51 @@
+﻿<Window x:Class="Assignment3._4._1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment3._4._1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="1400">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Margin="0,30,0,30" Grid.ColumnSpan="1" Grid.RowSpan="1">
+            <Label HorizontalAlignment="right" FontSize="40">Beverage Name:</Label>
+            <Label HorizontalAlignment="right" FontSize="40">Beverage Type:</Label>
+            <Label HorizontalAlignment="right" FontSize="40">Beverage Style:</Label>
+            <Label HorizontalAlignment="right" FontSize="40">Price:</Label>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Margin="0,30,0,30" Grid.ColumnSpan="1" Grid.RowSpan="1">
+            <TextBox Margin="0, 10, 0, 0" Height="50" x:Name="txtBeverageName" TextAlignment="Left" FontSize="30" />
+            <TextBox Margin="0, 15, 0, 0" Height="50" x:Name="txtBeverageType" TextAlignment="Left" FontSize="30" />
+            <TextBox Margin="0, 15, 0, 0" Height="50" x:Name="txtBeverageStyle" TextAlignment="Left" FontSize="30" />
+            <TextBox Margin="0, 15, 0, 0" Height="50" x:Name="txtBeveragePrice"  TextAlignment="Left" FontSize="30" />
+
+            <Button Margin="10" Height="50" Width="300" x:Name="btnAddBeverage" Content="Add Beverage" Click="btnAddBeverage_Click" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Margin="10">
+            <ListView ItemsSource="{Binding Source{StaticResource.StudentList}}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=txtBeverageName}" Width="100" />
+                        <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Path=txtBeverageType}" Width="100" />
+                        <GridViewColumn Header="Style" DisplayMemberBinding="{Binding Path=txtBeverageStyle}" Width="100" />
+                        <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Path=txtPrice}" Width="100" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+
+    </Grid>
+</Window>
